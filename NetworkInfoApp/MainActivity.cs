@@ -2,13 +2,15 @@
 using Android.Widget;
 using Android.OS;
 using Android.Net;
+using System;
 
 namespace NetworkInfoApp
 {
     [Activity(Label = "Newtwork Information", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : BaseActivity
     {
-        TextView txtConnectedValue,txtWifiValue,txtRoamingValue,txtBlueToothValue;
+        TextView txtConnectedValue,txtWifiValue,txtRoamingValue;
+        Button btnRefresh;
         protected override int LayoutResource
         {
             get { return Resource.Layout.main; }
@@ -24,14 +26,22 @@ namespace NetworkInfoApp
 
             FindView();
 
+            HandleEvents();
+
+            GetNetworkInfomation();
+
+        }
+
+        private void GetNetworkInfomation()
+        {
             // Get the reference of Connectivity Service
-            ConnectivityManager connectivityManager =(ConnectivityManager) GetSystemService(ConnectivityService);
+            ConnectivityManager connectivityManager = (ConnectivityManager)GetSystemService(ConnectivityService);
 
             // Get the network information
             NetworkInfo activeConnection = connectivityManager.ActiveNetworkInfo;
-            if(activeConnection!=null)
+            if (activeConnection != null)
             {
-                txtConnectedValue.Text = activeConnection.IsConnected ? "Yes": "No" ;
+                txtConnectedValue.Text = activeConnection.IsConnected ? "Yes" : "No";
             }
 
             NetworkInfo wifiInfo = connectivityManager.GetNetworkInfo(ConnectivityType.Wifi);
@@ -43,14 +53,18 @@ namespace NetworkInfoApp
             NetworkInfo mobileInfo = connectivityManager.GetNetworkInfo(ConnectivityType.Mobile);
             if (mobileInfo != null)
             {
-                txtRoamingValue.Text = (mobileInfo.IsConnected && mobileInfo.IsRoaming) ? "Yes" :"No";
+                txtRoamingValue.Text = (mobileInfo.IsConnected && mobileInfo.IsRoaming) ? "Yes" : "No";
             }
+        }
 
-            NetworkInfo blueToothInfo = connectivityManager.GetNetworkInfo(ConnectivityType.Bluetooth);
-            if (blueToothInfo != null)
-            {
-                txtBlueToothValue.Text = blueToothInfo.IsConnected ? "Yes" : "No";
-            }
+        private void HandleEvents()
+        {
+            btnRefresh.Click += BtnRefresh_Click;
+        }
+
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            GetNetworkInfomation();
         }
 
         private void FindView()
@@ -58,7 +72,7 @@ namespace NetworkInfoApp
             txtConnectedValue = FindViewById<TextView>(Resource.Id.txtConnectedValue);
             txtWifiValue = FindViewById<TextView>(Resource.Id.txtWifiValue);
             txtRoamingValue = FindViewById<TextView>(Resource.Id.txtRoamingValue);
-            txtBlueToothValue = FindViewById<TextView>(Resource.Id.txtBlueToothValue);
+            btnRefresh = FindViewById<Button>(Resource.Id.btnRefresh);
         }
     }
 }

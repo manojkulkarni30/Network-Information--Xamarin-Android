@@ -71,25 +71,14 @@
             android:textStyle="bold"
             android:layout_below="@id/txtWifiValue"
             android:gravity="right" />
-        <TextView
-            android:text="Bluetooth"
+        <Button
+            android:text="Refresh"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="20dp"
-            android:id="@+id/txtblueTooth"
-            android:textSize="16dp"
             android:layout_below="@id/txtRoaming"
-            android:textStyle="bold" />
-        <TextView
-            android:text="No"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="20dp"
-            android:id="@+id/txtBlueToothValue"
-            android:textSize="16dp"
-            android:layout_alignParentLeft="true"
-            android:textStyle="bold"
-            android:layout_below="@id/txtRoamingValue"
-            android:gravity="right" />
+            android:id="@+id/btnRefresh"
+            android:background="#00BCD4"
+            android:layout_marginTop="20dp"
+            android:textColor="@android:color/white" />
     </RelativeLayout>
 </RelativeLayout>
