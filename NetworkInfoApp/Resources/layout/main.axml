@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/main_content"
+        android:layout_below="@id/toolbar"
+        android:layout_margin="15dp">
+        <TextView
+            android:text="Connected To Internet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:id="@+id/txtConnected"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+        <TextView
+            android:text="No"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:id="@+id/txtConnectedValue"
+            android:textSize="16dp"
+            android:layout_alignParentLeft="true"
+            android:textStyle="bold"
+            android:gravity="right" />
+        <TextView
+            android:text="Wifi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:id="@+id/txtWifi"
+            android:textSize="16dp"
+            android:layout_below="@id/txtConnected"
+            android:textStyle="bold" />
+        <TextView
+            android:text="No"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:id="@+id/txtWifiValue"
+            android:textSize="16dp"
+            android:layout_alignParentLeft="true"
+            android:textStyle="bold"
+            android:layout_below="@id/txtConnectedValue"
+            android:gravity="right" />
+        <TextView
+            android:text="Roaming"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:id="@+id/txtRoaming"
+            android:textSize="16dp"
+            android:layout_below="@id/txtWifi"
+            android:textStyle="bold" />
+        <TextView
+            android:text="No"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:id="@+id/txtRoamingValue"
+            android:textSize="16dp"
+            android:layout_alignParentLeft="true"
+            android:textStyle="bold"
+            android:layout_below="@id/txtWifiValue"
+            android:gravity="right" />
+        <TextView
+            android:text="Bluetooth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:id="@+id/txtblueTooth"
+            android:textSize="16dp"
+            android:layout_below="@id/txtRoaming"
+            android:textStyle="bold" />
+        <TextView
+            android:text="No"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:id="@+id/txtBlueToothValue"
+            android:textSize="16dp"
+            android:layout_alignParentLeft="true"
+            android:textStyle="bold"
+            android:layout_below="@id/txtRoamingValue"
+            android:gravity="right" />
+    </RelativeLayout>
+</RelativeLayout>
