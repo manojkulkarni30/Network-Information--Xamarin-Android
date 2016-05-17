@@ -1,4 +1,4 @@
-# Network-Information-Xamarin-Android
+# Xamarin Android: Get Network Information
 Collect the network information like connected to internet, is roaming enable etc.
 
 # Snapshot
